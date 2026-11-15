@@ -67,13 +67,6 @@ export default function App() {
     setStage('QUIZ');
   };
 
-  const handleRetryMissed = (missedWeapons: Weapon[]) => {
-    if (missedWeapons.length === 0) return;
-    playClickSound(muted);
-    setQuizWeapons(shuffleArray(missedWeapons));
-    setSessionId((prev) => prev + 1);
-  };
-
   return (
     <div className="min-h-screen bg-turf-grid text-[#141829]">
       {stage === 'TITLE' && (
@@ -102,9 +95,9 @@ export default function App() {
           weapons={quizWeapons}
           muted={muted}
           onToggleMute={() => setMuted((prev) => !prev)}
+          onBackToHome={handleBackToTitle}
           onBackToScope={handleGoToScope}
           onRestartAll={startFilteredQuiz}
-          onRetryMissed={handleRetryMissed}
         />
       )}
     </div>
