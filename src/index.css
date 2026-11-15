@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-display: 'Outfit', 'Noto Sans KR', system-ui, -apple-system, sans-serif;
+    --font-body: 'Noto Sans KR', 'Outfit', system-ui, -apple-system, sans-serif;
+  }
+
+  html,
+  body {
+    font-family: var(--font-body);
+    background-color: #f3f5f9;
+    color: #141829;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.bg-turf-grid {
+  background-color: #f3f5f9;
+  background-image: radial-gradient(#d5dce8 1.25px, transparent 1.25px);
+  background-size: 22px 22px;
+}
+
+.card-arcade {
+  background-color: #ffffff;
+  border: 2px solid #141829;
+  box-shadow: 0 4px 0 #141829;
+}
+
+.btn-arcade {
+  border: 2px solid #141829;
+  box-shadow: 0 4px 0 #141829;
+  transition: transform 140ms cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 140ms cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 140ms ease,
+    border-color 140ms ease,
+    color 140ms ease;
+}
+
+.btn-arcade:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 0 #141829;
+}
+
+.btn-arcade:active:not(:disabled) {
+  transform: translateY(3px);
+  box-shadow: 0 1px 0 #141829;
+}
+
+.btn-arcade:disabled {
+  box-shadow: none;
+  transform: none;
+  cursor: not-allowed;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn-arcade {
+    transition: none;
+  }
+}
